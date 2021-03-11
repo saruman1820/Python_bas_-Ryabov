@@ -20,8 +20,6 @@ while True:
                 temp_value -= 1
 
         my_list.insert(new_value_index, new_value)
-        print(type(new_value))
-        print(temp_value)
         print(new_value_index)
 
         print(f"Сейчас следубщие занчения {my_list}")
