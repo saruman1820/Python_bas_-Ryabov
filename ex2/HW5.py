@@ -14,14 +14,16 @@ while True:
         # Поиск индекса
         while True:
             if (temp_value - 1) in my_list:
-                new_value_index = my_list.index(temp_value)
+                new_value_index = my_list.index(temp_value-1)
                 break
             else:
                 temp_value -= 1
 
-        my_list.insert(new_value_index + 1, new_value)
+        my_list.insert(new_value_index, new_value)
         print(type(new_value))
-        print(new_value)
+        print(temp_value)
+        print(new_value_index)
+
         print(f"Сейчас следубщие занчения {my_list}")
     elif new_value == "":
         break
