@@ -21,7 +21,6 @@ while True:
 
         my_list.insert(new_value_index, new_value)
         print(new_value_index)
-
         print(f"Сейчас следубщие занчения {my_list}")
     elif new_value == "":
         break
