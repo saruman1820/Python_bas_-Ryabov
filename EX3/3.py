@@ -2,10 +2,7 @@
 # и возвращает сумму наибольших двух аргументов.
 
 def my_func(num1, num2, num3):
-    list = []
-    list.append(num1)
-    list.append(num3)
-    list.append(num2)
+    list = [num1, num2, num3]
     list.remove(min(list))
     return list[0] + list[1]
 
