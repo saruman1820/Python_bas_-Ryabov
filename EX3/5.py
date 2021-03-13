@@ -15,6 +15,16 @@ def f_input():
         return user_input, False
     return user_input, True
 
+def check_float(value):
+    try:
+        float(value)
+        return float(value)
+    except ValueError:
+        try:
+            value = value.replace(",", ".")
+            return float(value)
+        except ValueError:
+            return False
 
 summa = 0
 con_loop = True
@@ -23,6 +33,6 @@ while con_loop:
     a = f_input()
     con_loop = a[1]
     for i in a[0]:
-        summa = summa + int(i)
+        summa = summa + check_float(i)
 
 print(summa)
