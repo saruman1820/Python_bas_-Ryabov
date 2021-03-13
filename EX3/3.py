@@ -10,4 +10,4 @@ def my_func(num1, num2, num3):
     return list[0] + list[1]
 
 
-print(my_func(99, 5, 7))
+print(my_func(1, 11, 100))

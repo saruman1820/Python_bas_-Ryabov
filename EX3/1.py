@@ -9,6 +9,6 @@ def dev_0(num1, num2):
 
 
 while True:
-    a = float(input("деление делимое"))
+    a = float(input("Введите  делимое"))
     b = float(input("деление делитель"))
     print(dev_0(a, b))
