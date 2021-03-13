@@ -14,10 +14,13 @@ while True:
         # Поиск индекса
         while True:
             if (temp_value - 1) in my_list:
-                new_value_index = my_list.index(temp_value-1)
+                new_value_index = my_list.index(temp_value - 1)
                 break
             else:
                 temp_value -= 1
+                if temp_value == 0:
+                    new_value_index = len(my_list)
+                    break
 
         my_list.insert(new_value_index, new_value)
         print(new_value_index)
