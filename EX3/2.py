@@ -11,12 +11,12 @@
 # Реализовать вывод данных о пользователе одной строкой.
 
 def user_info(
-        fname,
-        fsurname,
-        fyear,
-        ftown,
-        femail,
-        fphone):
+        fname=None,
+        fsurname=None,
+        fyear=None,
+        ftown=None,
+        femail=None,
+        fphone=None):
     """
 возвращяет строку с информацией по пользователе
     :param fname: имя
