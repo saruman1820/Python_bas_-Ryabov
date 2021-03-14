@@ -24,7 +24,7 @@ def check_float(value):
             value = value.replace(",", ".")
             return float(value)
         except ValueError:
-            return False
+            return None
 
 summa = 0
 con_loop = True
