@@ -18,4 +18,4 @@ def fact(end_number):
 
 end_number = int(input("введите конечное число число: "))
 
-print(f"первые n чисел, начиная с 1! и до {end_number}! {[el for el in fact(end_number)]}")
+print(f"первые n чисел, начиная с 1! и до {end_number}! {[el for el in fact(end_number)]}") 
