@@ -6,6 +6,8 @@
 # Результат: [12, 44, 4, 10, 78, 123].
 
 my_list = [300, 2, 12, 44, 1, 1, 4, 10, 7, 1, 78, 123, 55, 55]
-my_new_list = [elem for idx, elem in enumerate(my_list) if my_list[idx - 1] < my_list[idx]]
+my_new_list = [elem for idx, elem in enumerate(my_list)
+               if idx > 0 and
+               my_list[idx - 1] < my_list[idx]]
 print(f'Исходный список {my_list}')
 print(f'Новый список {my_new_list}')
