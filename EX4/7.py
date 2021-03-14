@@ -9,6 +9,10 @@ from itertools import count
 
 def fact(end_number):
     result = 1
+
+    if end_number <= 0:
+        yield result
+
     for el in count(1):
         if el > end_number:
             break
