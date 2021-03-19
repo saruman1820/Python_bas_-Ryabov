@@ -16,4 +16,5 @@ for el in content:
     if float(salary) < 20000:
         list.append(lname)
 print(f'Средняя величина дохода сотрудников: {round(sum / len(content), 2)}')
-print(f"Cотрудники имющие оклад менее 20 тыс.{list}")
+print(f"Cотрудники имющие оклад менее 20 тыс:", end=" ")
+print(*list, sep=", ")
