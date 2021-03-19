@@ -7,8 +7,8 @@ try:
     content = f_obj.readlines()
     print(content)
     lines = len(content)
-    for index, el in enumerate(content ,1 ):
-        print(f"В {index}-й строке {len(el.split())} слов(a)" )
+    for index, el in enumerate(content, 1):
+        print(f"В {index}-й строке {len(el.split())} слов(a)")
     print(f"в файле {lines} строк(и)")
 
 
