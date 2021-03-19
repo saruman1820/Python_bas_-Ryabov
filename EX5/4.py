@@ -17,6 +17,8 @@ NUMERALS = {"One": 'Один', "Two": 'Два', "Three": 'Три', "Four": 'Че
 with open(SRC_FILENAME) as f_obj:
     lines = f_obj.readlines()
 for el in lines:
-    chis, numb = el.replace("\n", '').split()
+    chis, numb = el.replace("\n", '').split(" - ")
     chis = NUMERALS.get(chis)
+    with open(DST_FILENAME, "a+") as d_file:
+        print(f"{chis} - {numb}", file=d_file)
 
