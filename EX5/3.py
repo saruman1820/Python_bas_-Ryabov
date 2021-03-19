@@ -8,8 +8,8 @@ list = []
 sum = 0
 my_f = open('3.txt', encoding='utf-8')
 content = my_f.readlines()
-
 my_f.close()
+
 for el in content:
     lname, salary = el.replace("\n", '').split()
     sum += float(salary)
