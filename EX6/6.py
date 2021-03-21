@@ -13,7 +13,6 @@ class Pen(Stationary):
     def draw(self):
         return f'Запуск отрисовки {self.title}'
 
-
 class Pencil(Stationary):
     def __init__(self, title):
         super().__init__(title)
