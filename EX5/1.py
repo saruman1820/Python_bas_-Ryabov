@@ -10,5 +10,5 @@ while text != "":
     text = input("Введите текст: ")
     file = open("1.txt", "a")
     if text != "":
-        file.writelines(text+"\n")
+        file.writeline(text+"\n")
     file.close()
