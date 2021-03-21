@@ -22,7 +22,7 @@ class TrafficLight:
                 sleep(7)
             elif el == 'yellow':
                 sleep(2)
-            elif el == "зеленый":
+            elif el == "green":
                 sleep(10)
 
 
