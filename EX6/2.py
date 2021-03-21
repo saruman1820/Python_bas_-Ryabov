@@ -26,7 +26,7 @@ class Road:
     # def mass(self, _length):
 
 try:
-    new_road = Road(10,20)
+    new_road = Road(10, 20)
 except:
     print('класс Road требует 2 позиционных аргумента')
 
