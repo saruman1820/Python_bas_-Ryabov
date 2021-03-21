@@ -29,20 +29,23 @@ with open('7.txt', 'r') as file:
         name, firm, earning, damage = line.split()
         profit[name] = int(earning) - int(damage)
         if profit.setdefault(name) >= 0:
-            prof = prof + profit.setdefault(name)
+            prof += profit.setdefault(name)
             i += 1
     if i != 0:
         prof_aver = prof / i
-        print(f'Прибыль средняя - {prof_aver:}')
+        print(f'Прибыль средняя - {prof_aver}')
     else:
         print(f'Прибыль средняя - отсутсвует. Все работают в убыток')
-    pr = {'средняя прибыль': round(prof_aver)}
-    profit.update(pr)
+    pr = {'avg_profit': round(prof_aver)}
+
     print(f'Прибыль каждой компании - {profit}')
+    print(f'средняя перибыль - {pr}')
+    list = [profit, pr]
 
 with open('7.json', 'w') as write_js:
-    json.dump(profit, write_js)
-
-    js_str = json.dumps(profit)
-    print(f'Создан файл с расширением json со следующим содержимым: \n '
-          f' {js_str}')
+    json.dump(list, write_js)
+    # json.dump(, write_js)
+with open('7.json', "r") as write_js:
+    js_str = write_js.readline()
+print(f'Создан файл с расширением json со следующим содержимым: \n '
+      f' {(js_str)}')
