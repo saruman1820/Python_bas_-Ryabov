@@ -39,28 +39,28 @@
 
 class Cell:
     def __init__(self, location: int):
-        self.location = location
+        self.__location = location
 
     def __add__(self, other):
-        return Cell(self.location + other.location)
+        return Cell(self.__location + other.__location)
 
     def __sub__(self, other):
-        if self.location > other.location:
-            return Cell(self.location - other.location)
-        return f"{self.location} - {other.location}: нельзя так!"
+        if self.__location > other.__location:
+            return Cell(self.__location - other.__location)
+        return f"{self.__location} - {other.__location}: нельзя так!"
 
     def __mul__(self, other):
-        return Cell(self.location * other.location)
+        return Cell(self.__location * other.__location)
 
     def __truediv__(self, other):
-        return Cell(self.location // other.location)
+        return Cell(self.__location // other.__location)
 
     def make_order(self, order: int):
-        rows, tail = self.location // order, self.location % order
+        rows, tail = self.__location // order, self.__location % order
         return '\n'.join(['*' * order] * rows + (['*' * tail] if tail else []))
 
     def __str__(self) -> str:
-        return f"Клетка состоит из {self.location} ячеек"
+        return f"Клетка состоит из {self.__location} ячеек"
 
 
 c1 = Cell(6)
