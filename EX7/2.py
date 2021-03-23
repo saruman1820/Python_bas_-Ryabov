@@ -20,7 +20,6 @@ class Clothes(ABC):
     def __init__(self, name):
         self.name = name
 
-
     def __add__(self, other):
         return self.area + other.area
 
@@ -52,7 +51,6 @@ class Costume(Clothes):
 
 a = Coat("пальто 1", 12)
 b = Costume("Костюм 1", 2)
-
 
 print(a.area)
 print(b.area)
