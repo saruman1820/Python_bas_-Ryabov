@@ -13,13 +13,21 @@
 
 """
 
+from abc import ABC, abstractmethod
 
-class Clothes:
+
+class Clothes(ABC):
     def __init__(self, name):
         self.name = name
 
+
     def __add__(self, other):
         return self.area + other.area
+
+    @property
+    @abstractmethod
+    def area(self):
+        pass
 
 
 class Coat(Clothes):
