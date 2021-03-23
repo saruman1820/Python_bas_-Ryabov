@@ -21,7 +21,7 @@ class Matrix:
         # проверка что количество строк и скольбцов равно
         if len(self.list) == len(other.list) and len(self.list[0]) == len(other.list[0]):
             return Matrix([[self.list[j][i] + other.list[j][i] for i in range(len(self.list[0]))]
-                           for j in range(len(self.list))])
+                                                               for j in range(len(self.list))])
         else:
             return str("Нельзя сложить матрицы с расзной шириной")
 
