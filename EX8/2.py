@@ -28,4 +28,4 @@ except MyZeroDivision as e:
     print(e)
 except ValueError as e:
     print(e)
-    break
+
