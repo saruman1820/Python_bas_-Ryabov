@@ -1,0 +1,107 @@
+"""
+Продолжить работу над первым заданием.
+Разработать методы, отвечающие за приём оргтехники на склад и передачу в определенное подразделение компании.
+Для хранения данных о наименовании и количестве единиц оргтехники,
+а также других данных, можно использовать любую подходящую структуру, например словарь.
+"""
+
+
+class Not_Space(Exception):
+    pass
+
+
+class Deparment():
+    def __init__(self,
+                 max_count: int,
+                 deparment_name: str):
+        self.max_count = max_count
+        self.deparment_name = deparment_name
+        self.__storage = []
+
+
+    def add(self, equipment):
+        if not isinstance(equipment, Office_equipment):
+            print(f"Вы пытаетесь добавить на склад не оргтехнику")
+        else:
+            self.__storage.append(equipment)
+            print(f"в депортамент {self.deparment_name} добавлено {equipment.manufacturer, equipment.model} "
+                  f"ещё свободно {self.max_count - len(self.__storage)}")
+
+
+class Office_equipment:
+    def __init__(self,
+                 manufacturer: str,
+                 model: str,
+                 count_sheets_per_minute: float = 0,
+                 interface: str = "usb"):
+        self.manufacturer = manufacturer
+        self.model = model
+        self.count_sheets_per_minute = count_sheets_per_minute
+        self.interface = interface
+        print(f"Устройство {self.manufacturer} {self.model} проинвенторизировано ")
+
+
+
+
+class Printer(Office_equipment):
+    def __init__(self, price_one_sheet: float, max_count_sheet_per_one_cartridge: int, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.price_one_sheet = price_one_sheet
+        self.max_count_sheet_per_one_cartridge = max_count_sheet_per_one_cartridge
+
+
+
+class Scanner(Office_equipment):
+    def __init__(self, auto_feed: bool = False, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.auto_feed = auto_feed
+
+
+class Mfu(Office_equipment):
+    def __init__(self,
+                 price_one_sheet: float,
+                 max_count_sheet_per_one_cartridge: int,
+                 auto_feed: bool = False,
+                 *args,
+                 **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.price_one_sheet = price_one_sheet
+        self.max_count_sheet_per_one_cartridge = max_count_sheet_per_one_cartridge
+        self.auto_feed = auto_feed
+
+
+printer1 = Printer(manufacturer="Xerox", model="202", count_sheets_per_minute=30, interface="ethernet",
+                   price_one_sheet=0.5, max_count_sheet_per_one_cartridge=1000)
+
+printer2 = Printer(manufacturer="Xerox", model="202", count_sheets_per_minute=30, interface="ethernet",
+                   price_one_sheet=0.5, max_count_sheet_per_one_cartridge=1000)
+
+printer3 = Printer(manufacturer="Xerox", model="202", count_sheets_per_minute=30, interface="ethernet",
+                   price_one_sheet=0.5, max_count_sheet_per_one_cartridge=1000)
+
+scanner1 = Scanner(manufacturer="hp", model="330", count_sheets_per_minute=60, interface="usb",
+                   auto_feed=True)
+scanner2 = Scanner(manufacturer="hp", model="330", count_sheets_per_minute=60, interface="usb",
+                   auto_feed=False)
+scanner3 = Scanner(manufacturer="hp", model="330", count_sheets_per_minute=60, interface="ethernet",
+                   auto_feed=True)
+
+mfu1 = Mfu(manufacturer="hp", model="330", count_sheets_per_minute=60, interface="ethernet",
+           price_one_sheet=0.5, max_count_sheet_per_one_cartridge=1000, auto_feed=True)
+
+mfu2 = Mfu(manufacturer="hp", model="330", count_sheets_per_minute=60, interface="ethernet",
+           price_one_sheet=0.5, max_count_sheet_per_one_cartridge=1000, auto_feed=False)
+
+mfu3 = Mfu(manufacturer="hp", model="330", count_sheets_per_minute=60, interface="ethernet",
+           price_one_sheet=0.5, max_count_sheet_per_one_cartridge=50000, auto_feed=True)
+
+stock = Deparment(max_count=5, deparment_name="Stock")
+recep = Deparment(max_count=2, deparment_name="Reception")
+stock.add(printer1)
+stock.add(printer2)
+stock.add(printer3)
+
+
