@@ -6,26 +6,41 @@
 """
 
 
+def move(old_department, new_department, equipment):
+    old_department.rem(equipment)
+    new_department.add(equipment)
+
+
 class Not_Space(Exception):
     pass
 
 
-class Deparment():
+class Department():
     def __init__(self,
                  max_count: int,
-                 deparment_name: str):
+                 department_name: str):
         self.max_count = max_count
-        self.deparment_name = deparment_name
-        self.__storage = []
-
+        self.department_name = department_name
+        self.storage = []
 
     def add(self, equipment):
         if not isinstance(equipment, Office_equipment):
             print(f"Вы пытаетесь добавить на склад не оргтехнику")
         else:
-            self.__storage.append(equipment)
-            print(f"в депортамент {self.deparment_name} добавлено {equipment.manufacturer, equipment.model} "
-                  f"ещё свободно {self.max_count - len(self.__storage)}")
+            self.storage.append(equipment)
+            print(f"в депортамент {self.department_name} добавлено {equipment.manufacturer, equipment.model} "
+                  f"ещё свободно {self.max_count - len(self.storage)} ")
+
+    def rem(self, equipment):
+        if not isinstance(equipment, Office_equipment):
+            print(f"Вы пытаетесь удалить то чего нет на складt")
+        else:
+            self.storage.remove(equipment)
+            print(f"в депортамент {self.department_name} добавлено {equipment.manufacturer, equipment.model} "
+                  f"ещё свободно {self.max_count - len(self.storage)} ")
+
+    def __str__(self):
+        return self.storage.__str__()
 
 
 class Office_equipment:
@@ -39,8 +54,6 @@ class Office_equipment:
         self.count_sheets_per_minute = count_sheets_per_minute
         self.interface = interface
         print(f"Устройство {self.manufacturer} {self.model} проинвенторизировано ")
-
-
 
 
 class Printer(Office_equipment):
@@ -89,19 +102,23 @@ scanner2 = Scanner(manufacturer="hp", model="330", count_sheets_per_minute=60, i
 scanner3 = Scanner(manufacturer="hp", model="330", count_sheets_per_minute=60, interface="ethernet",
                    auto_feed=True)
 
-mfu1 = Mfu(manufacturer="hp", model="330", count_sheets_per_minute=60, interface="ethernet",
+mfu1 = Mfu(manufacturer="kyocera", model="350030", count_sheets_per_minute=60, interface="ethernet",
            price_one_sheet=0.5, max_count_sheet_per_one_cartridge=1000, auto_feed=True)
 
-mfu2 = Mfu(manufacturer="hp", model="330", count_sheets_per_minute=60, interface="ethernet",
+mfu2 = Mfu(manufacturer="kyocera", model="330asd", count_sheets_per_minute=60, interface="ethernet",
            price_one_sheet=0.5, max_count_sheet_per_one_cartridge=1000, auto_feed=False)
 
-mfu3 = Mfu(manufacturer="hp", model="330", count_sheets_per_minute=60, interface="ethernet",
+mfu3 = Mfu(manufacturer="kyocera", model="asdasd330", count_sheets_per_minute=60, interface="ethernet",
            price_one_sheet=0.5, max_count_sheet_per_one_cartridge=50000, auto_feed=True)
 
-stock = Deparment(max_count=5, deparment_name="Stock")
-recep = Deparment(max_count=2, deparment_name="Reception")
+stock = Department(max_count=5, department_name="Stock")
+recep = Department(max_count=2, department_name="Reception")
 stock.add(printer1)
 stock.add(printer2)
 stock.add(printer3)
+print(stock)
+print(recep)
+move(stock, recep, printer2)
 
-
+print(stock)
+print(recep)
